@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vault-primary: #0019FF;
+  --color-vault-secondary: #6152F4;
+  --color-vault-dark: #0F1117;
+  --color-vault-card: #1A1B23;
+  --color-vault-card-hover: #22232E;
+  --color-vault-border: rgba(97, 82, 244, 0.2);
+  --color-vault-border-hover: rgba(97, 82, 244, 0.4);
+  --color-vault-text: #E4E4E7;
+  --color-vault-muted: #9CA3AF;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0F1117;
+}
+::-webkit-scrollbar-thumb {
+  background: #6152F4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0019FF;
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 25, 255, 0.3);
+  color: white;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+}
+
+/* Glassmorphism card utility */
+.glass-card {
+  background: rgba(26, 27, 35, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(97, 82, 244, 0.15);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(97, 82, 244, 0.35);
+  background: rgba(34, 35, 46, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 25, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0019FF, #6152F4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero gradient bg */
+.hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 25, 255, 0.25), transparent),
+              radial-gradient(ellipse 60% 40% at 80% 0%, rgba(97, 82, 244, 0.15), transparent);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 40px rgba(0, 25, 255, 0.15), 0 0 80px rgba(97, 82, 244, 0.08);
+}
+
+/* Recharts customizations */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.recharts-text {
+  fill: #9CA3AF;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+/* Stat card pulse */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 25, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(0, 25, 255, 0.2); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Table hover rows */
+.table-row-hover:hover {
+  background: rgba(97, 82, 244, 0.08);
+}
+
+/* Pill badge */
+.pill {
+  border-radius: 100px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
