@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, BookOpen, FileText } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import VaultLogo from './VaultLogo';
 
 const navItems = [
@@ -84,6 +85,25 @@ export default function Header() {
                 {item.label}
               </button>
             ))}
+
+            {/* Divider */}
+            <div className="w-px h-5 bg-vault-border mx-1" />
+
+            {/* Page links */}
+            <Link
+              to="/research"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-vault-muted hover:text-white hover:bg-white/5 transition-all"
+            >
+              <BookOpen size={13} />
+              Research
+            </Link>
+            <Link
+              to="/sources"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-vault-muted hover:text-white hover:bg-white/5 transition-all"
+            >
+              <FileText size={13} />
+              Sources
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -120,6 +140,25 @@ export default function Header() {
                   {item.label}
                 </button>
               ))}
+
+              <div className="h-px bg-vault-border my-3" />
+
+              <Link
+                to="/research"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-medium text-vault-muted hover:text-white hover:bg-white/5 transition-all"
+              >
+                <BookOpen size={16} />
+                Full Research
+              </Link>
+              <Link
+                to="/sources"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 px-4 py-3 rounded-xl text-base font-medium text-vault-muted hover:text-white hover:bg-white/5 transition-all"
+              >
+                <FileText size={16} />
+                Sources
+              </Link>
             </nav>
           </motion.div>
         )}

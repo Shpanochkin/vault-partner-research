@@ -13,7 +13,7 @@ const phases = [
     items: [
       'Partner portal with self-service onboarding',
       'Lead routing & attribution system',
-      'CRM integration (HubSpot/Salesforce)',
+      'CRM integration (Zoho)',
       'Basic dashboard & reporting',
       'Contract templates & legal framework',
     ],
@@ -51,7 +51,7 @@ const phases = [
 const techStack = [
   { name: 'PartnerStack', description: 'Primary PRM platform for partner management, tracking, and payouts', recommended: true },
   { name: 'Impact.com', description: 'Alternative PRM with strong attribution and analytics capabilities', recommended: true },
-  { name: 'HubSpot CRM', description: 'Lead routing, deal tracking, and partner pipeline management', recommended: false },
+  { name: 'Zoho CRM', description: 'Lead routing, deal tracking, and partner pipeline management (already in use)', recommended: true },
   { name: 'Custom API', description: 'Attribution SDK and partner-facing integration endpoints', recommended: false },
 ];
 
@@ -133,7 +133,7 @@ export default function Roadmap() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="mt-12"
+        className="mt-20 pt-12 border-t border-vault-border/30"
       >
         <div className="flex items-center gap-3 mb-6">
           <div className="w-9 h-9 rounded-lg bg-vault-primary/15 flex items-center justify-center">
