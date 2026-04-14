@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
-import { Layers, Code, Megaphone, Wrench, ArrowRight } from 'lucide-react';
+import { Layers, Code, Megaphone, Wrench, ArrowRight, Check } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 import SectionHeading from './SectionHeading';
+
+interface RoadmapItem {
+  text: string;
+  done?: boolean;
+}
 
 const phases = [
   {
@@ -11,12 +16,12 @@ const phases = [
     timeline: 'Months 1-3',
     color: '#0019FF',
     items: [
-      'Partner portal with self-service onboarding',
-      'Lead routing & attribution system',
-      'CRM integration (Zoho)',
-      'Basic dashboard & reporting',
-      'Contract templates & legal framework',
-    ],
+      { text: 'Partner portal with self-service onboarding', done: true },
+      { text: 'Lead routing & attribution system', done: true },
+      { text: 'CRM integration (Zoho)', done: true },
+      { text: 'Basic dashboard & reporting' },
+      { text: 'Contract templates & legal framework' },
+    ] as RoadmapItem[],
   },
   {
     id: 2,
@@ -25,12 +30,12 @@ const phases = [
     timeline: 'Months 4-6',
     color: '#6152F4',
     items: [
-      'Attribution API & tracking SDK',
-      'Milestone-based payout automation',
-      'Partner tier auto-progression',
-      'Advanced analytics & forecasting',
-      'API documentation & sandbox',
-    ],
+      { text: 'Attribution API & tracking SDK' },
+      { text: 'Milestone-based payout automation' },
+      { text: 'Partner tier auto-progression' },
+      { text: 'Advanced analytics & forecasting' },
+      { text: 'API documentation & sandbox' },
+    ] as RoadmapItem[],
   },
   {
     id: 3,
@@ -39,12 +44,12 @@ const phases = [
     timeline: 'Months 7-12',
     color: '#8B5CF6',
     items: [
-      'Co-marketing campaigns & content hub',
-      'Market Development Fund (MDF) for top partners',
-      'Partner certification program',
-      'Annual partner summit planning',
-      'Strategic partner co-selling playbook',
-    ],
+      { text: 'Co-marketing campaigns & content hub' },
+      { text: 'Market Development Fund (MDF) for top partners' },
+      { text: 'Partner certification program' },
+      { text: 'Annual partner summit planning' },
+      { text: 'Strategic partner co-selling playbook' },
+    ] as RoadmapItem[],
   },
 ];
 
@@ -115,8 +120,14 @@ export default function Roadmap() {
                         transition={{ duration: 0.3, delay: 0.3 + idx * 0.05 }}
                         className="flex items-start gap-2.5"
                       >
-                        <ArrowRight size={14} style={{ color: phase.color }} className="mt-0.5 shrink-0" />
-                        <span className="text-sm text-vault-text leading-relaxed">{item}</span>
+                        {item.done ? (
+                          <Check size={14} className="mt-0.5 shrink-0 text-emerald-400" />
+                        ) : (
+                          <ArrowRight size={14} style={{ color: phase.color }} className="mt-0.5 shrink-0" />
+                        )}
+                        <span className={`text-sm leading-relaxed ${item.done ? 'text-vault-muted line-through decoration-vault-muted/40' : 'text-vault-text'}`}>
+                          {item.text}
+                        </span>
                       </motion.li>
                     ))}
                   </ul>
